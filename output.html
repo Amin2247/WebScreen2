@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <div class="header">Device Information Output</div>
+            <div id="output"></div>
+        </div>
+    </div>
+    <script>
+        // Retrieve data from localStorage
+        const deviceData = JSON.parse(localStorage.getItem("deviceData"));
+        const outputDiv = document.getElementById("output");
+
+        if (deviceData) {
+            deviceData.forEach((room, index) => {
+                const roomDiv = document.createElement("div");
+                roomDiv.classList.add("output-section");
+                roomDiv.innerHTML = `
+                    <h2>Room ${index + 1}</h2>
+                    <div class="output-row">
+                        <strong>Room Name:</strong> <span>${room.roomName}</span>
+                    </div>
+                    <div class="output-row">
+                        <strong>Model:</strong> <span>${room.model}</span>
+                    </div>
+                    <div class="output-row">
+                        <strong>Service Provider:</strong> <span>${room.serviceProvider}</span>
+                    </div>
+                    <div class="output-row">
+                        <strong>Firmware Version:</strong> <span>${room.firmwareVersion}</span>
+                    </div>
+                    <div class="output-row">
+                        <strong>MAC Address:</strong> <span>${room.macAddress}</span>
+                    </div>
+                    <div class="output-row">
+                        <strong>IP Address:</strong> <span>${room.ipAddress}</span>
+                    </div>
+                    <div class="output-row">
+                        <strong>Video App Version:</strong> <span>${room.videoAppVersion}</span>
+                    </div>
+                `;
+                outputDiv.appendChild(roomDiv);
+            });
+        } else {
+            outputDiv.innerHTML = "<p>No data available</p>";
+        }
+    </script>
+</body>
+</html>
