@@ -1,4 +1,4 @@
-This program reads input from a file and dynamically populates a web page with the retrieved data. 
+This is a sample project, This program reads input from a file and dynamically populates a web page with the retrieved data. 
 The data includes details such as the room number, room name, device model, service provider, firmware 
 version, MAC address, IP address, and video conferencing information. 
 The web page displays information for two different rooms. The initial styles are defined in a CSS file, 
